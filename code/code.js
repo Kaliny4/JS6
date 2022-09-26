@@ -58,7 +58,8 @@
   }
    class Lorry extends Car {
 
-    constructor(powerLift) {
+    constructor(powerLift, brand, clasauto, weight, power, manufacterer, name, experience) {
+      super(brand, clasauto, weight, power, manufacterer, name, experience);
       this.powerLift = powerLift;
       
     }
@@ -67,7 +68,8 @@
   
   class SportCar extends Car {
 
-    constructor(maxSpeed) {
+    constructor(maxSpeed, brand, clasauto, weight, power, manufacterer, name, experience) {
+      super(brand, clasauto, weight, power, manufacterer, name, experience);
       this.maxSpeed = maxSpeed;
       
     }
@@ -75,4 +77,4 @@
   }
   
   let tesla = new Car("Tesla", "premium", "30", "Peter", "5", "300", "tesl");
-  tesla.toString();
+  tesla.toString(); 
