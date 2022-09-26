@@ -7,17 +7,6 @@
   Створити похідний від Car клас - Lorry (вантажівка), що характеризується також вантажопідйомністю 
   кузова. Створити похідний від Car клас - SportCar, який також характеризується граничною швидкістю. 
   */
-  class Engine {
-    
-    constructor(power, manufacterer) {
-      this.power = power;
-      this.manufacterer = manufacterer;
-    }
-  
-  }
-  
-  let engine = new Engine("300", "tesla");
-  
   class Driver {
 
     constructor(name, experience) {
@@ -27,16 +16,20 @@
   
   }
   
-  let driver = new Driver("Peter", "5");
-      
-  class Car {
+  class Engine extends Driver {
+    constructor(power, manufacterer, name, experience){
+    super(name, experience);
+    this.power = power;
+    this.manufacterer = manufacterer;
+    }
+  } 
+  class Car extends Engine {
         
-    constructor (brand, clasauto, weight, Driver, Engine){
+    constructor (brand, clasauto, weight, power, manufacterer, name, experience){
+        super(power, manufacterer, name, experience);
         this.brand = brand;
         this.clasauto = clasauto;
         this.weight = weight;
-        this.driver = Driver;
-        this.engine = Engine;
        }
     start() {
         console.log("Поїхали");
@@ -52,15 +45,34 @@
         console.log("Поворот ліворуч");
     }
     toString() {
-        console.log(this.brand,
-            this.clasauto,
-            this.weight,
-            this.driver,
-            this.engine);
+        alert(
+            this.brand + " " +
+            this.clasauto  + " " +
+            this.weight   + " " +
+            this.name   + " " +
+            this.experience   + " " +
+            this.power   + " " +
+            this.manufacterer,);
     }
        
   }
+   class Lorry extends Car {
+
+    constructor(powerLift) {
+      this.powerLift = powerLift;
+      
+    }
   
-  let tesla = new Car("Tesla", "premium", "30", driver, engine);
-  tesla.turnLeft();
+  }
+  
+  class SportCar extends Car {
+
+    constructor(maxSpeed) {
+      this.maxSpeed = maxSpeed;
+      
+    }
+  
+  }
+  
+  let tesla = new Car("Tesla", "premium", "30", "Peter", "5", "300", "tesl");
   tesla.toString();
